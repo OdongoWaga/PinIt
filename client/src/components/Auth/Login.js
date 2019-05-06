@@ -2,12 +2,29 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { GoogleLogin } from "react-google-login";
+import { GraphQLClient } from "graphql-request";
+
+const ME_QUERY=`
+{
+  me {
+    _id
+    name
+    email
+    picture
+  }
+}
+`
 
 const Login = ({ classes }) => {
-	const onSuccess = (googleUser) => {
-		const idToken = googleUser.getAuthResponse().id_token;
+	const onSuccess = async(googleUser) => {
+    const idToken = googleUser.getAuthResponse().id_token;
+    
+    const client = new GraphQLClient('http://localhost:4000/graphql'. {
+      headers: {authorization: idToken}
+    })
 
-		console.log({ idToken });
+    const data = await client.request()
+    console.log({data})
 	};
 
 	return (
