@@ -38,7 +38,7 @@ const Login = ({ classes }) => {
 				noWrap
 				style={{ color: "rgb(66, 133, 244)" }}
 			>
-				Welcome
+				Welcome Back
 			</Typography>
 			<GoogleLogin
 				clientId="721762092596-dlbsi4mv2cgm8eh400eevt9v5ggr4ogv.apps.googleusercontent.com"
