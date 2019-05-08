@@ -25,9 +25,9 @@ const Login = ({ classes }) => {
 			onFailure(err);
 		}
 	};
-
 	const onFailure = (err) => {
 		console.error("Error logging in", err);
+		dispatch({ type: "IS_LOGGED_IN", payload: false });
 	};
 
 	return (
@@ -46,6 +46,7 @@ const Login = ({ classes }) => {
 				onSuccess={onSuccess}
 				onFailure={onFailure}
 				isSignedIn={true}
+				buttonText="Login with Google"
 				theme="dark"
 			/>
 		</div>
