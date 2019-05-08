@@ -1,42 +1,47 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-// import Button from "@material-ui/core/Button";
-// import Typography from "@material-ui/core/Typography";
-// import DeleteIcon from "@material-ui/icons/DeleteTwoTone";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import DeleteIcon from "@material-ui/icons/DeleteTwoTone";
+import ReactMapGL from "react-map-gl";
 
 const Map = ({ classes }) => {
-  return <div>Map</div>;
+	return (
+		<div className={classes.root}>
+			<ReactMapGL mapboxApiAccessToken="">A</ReactMapGL>
+		</div>
+	);
 };
 
 const styles = {
-  root: {
-    display: "flex"
-  },
-  rootMobile: {
-    display: "flex",
-    flexDirection: "column-reverse"
-  },
-  navigationControl: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    margin: "1em"
-  },
-  deleteIcon: {
-    color: "red"
-  },
-  popupImage: {
-    padding: "0.4em",
-    height: 200,
-    width: 200,
-    objectFit: "cover"
-  },
-  popupTab: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column"
-  }
+	root: {
+		display: "flex"
+	},
+	rootMobile: {
+		display: "flex",
+		flexDirection: "column-reverse"
+	},
+	navigationControl: {
+		position: "absolute",
+		top: 0,
+		left: 0,
+		margin: "1em"
+	},
+	deleteIcon: {
+		color: "red"
+	},
+	popupImage: {
+		padding: "0.4em",
+		height: 200,
+		width: 200,
+		objectFit: "cover"
+	},
+	popupTab: {
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+		flexDirection: "column"
+	}
 };
 
 export default withStyles(styles)(Map);
