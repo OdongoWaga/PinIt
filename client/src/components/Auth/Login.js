@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import { GoogleLogin } from "react-google-login";
 import { GraphQLClient } from "graphql-request";
 
-const ME_QUERY=`
+const ME_QUERY = `
 {
   me {
     _id
@@ -13,18 +13,18 @@ const ME_QUERY=`
     picture
   }
 }
-`
+`;
 
 const Login = ({ classes }) => {
-	const onSuccess = async(googleUser) => {
-    const idToken = googleUser.getAuthResponse().id_token;
-    
-    const client = new GraphQLClient('http://localhost:4000/graphql'. {
-      headers: {authorization: idToken}
-    })
+	const onSuccess = async (googleUser) => {
+		const idToken = googleUser.getAuthResponse().id_token;
 
-    const data = await client.request()
-    console.log({data})
+		const client = new GraphQLClient("http://localhost:4000/graphql", {
+			headers: { authorization: idToken }
+		});
+
+		const data = await client.request();
+		console.log({ data });
 	};
 
 	return (
