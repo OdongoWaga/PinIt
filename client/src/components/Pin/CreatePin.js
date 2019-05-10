@@ -11,8 +11,8 @@ import SaveIcon from "@material-ui/icons/SaveTwoTone";
 import { unstable_useMediaQuery as useMediaQuery } from "@material-ui/core/useMediaQuery";
 
 import Context from "../../context";
-import { useClient } from "../../client";
 import { CREATE_PIN_MUTATION } from "../../graphql/mutations";
+import { useClient } from "../../client";
 
 const CreatePin = ({ classes }) => {
 	const mobileSize = useMediaQuery("(max-width: 650px)");
@@ -33,10 +33,10 @@ const CreatePin = ({ classes }) => {
 	const handleImageUpload = async () => {
 		const data = new FormData();
 		data.append("file", image);
-		data.append("upload_preset", "pinned");
-		data.append("cloud_name", "dmyunu5s5");
+		data.append("upload_preset", "geopins");
+		data.append("cloud_name", "denrebenok");
 		const res = await axios.post(
-			"https://api.cloudinary.com/v1_1/dmyunu5s5/image/upload",
+			"https://api.cloudinary.com/v1_1/denrebenok/image/upload",
 			data
 		);
 		return res.data.url;
@@ -53,7 +53,7 @@ const CreatePin = ({ classes }) => {
 			handleDeleteDraft();
 		} catch (err) {
 			setSubmitting(false);
-			console.error("Error creating pin", err);
+			console.error("Error creating pin ", err);
 		}
 	};
 
@@ -70,7 +70,7 @@ const CreatePin = ({ classes }) => {
 			<div>
 				<TextField
 					name="title"
-					label="Title"
+					label="title"
 					placeholder="Insert pin title"
 					onChange={(e) => setTitle(e.target.value)}
 				/>
